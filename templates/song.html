@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mood Beats">
+    <meta name="keywords" content="Mood Beats">
+    <meta name="author" content="Mood Beats">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon" />
+    <title>Mood Beats</title>
+
+    <!-- Bootstrap CSS -->
+    <link id="rtl-link" rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/vendors/bootstrap.css') }}">
+
+    <!-- Remixicon CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/vendors/remixicon.css') }}">
+
+    <!-- Iconsax CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/vendors/iconsax.css') }}" />
+
+    <!-- Animation CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/vendors/aos.css') }}">
+
+    <!-- Swiper Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/vendors/swiper-bundle.min.css') }}" />
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/movie.css') }}">
+</head>
+
+<body>
+    <section class="chatting-wrapper pt-0">
+        <nav class="navbar navbar-expand-md p-0">
+            <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainnavbarNav" aria-controls="mainnavbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="iconsax" data-icon="text-align-justify"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="mainnavbarNav">
+                <div class="menu-panel">
+                    <button data-bs-toggle="collapse" data-bs-target="#mainnavbarNav"
+                        class="mainnav-close d-block d-md-none"><i class="iconsax" data-icon="close-circle"></i>
+                    </button>
+                    <a href="{{ url_for('index') }}" class="logo-icon d-none d-md-flex">
+                        <img src="{{ url_for('static', filename='css/logo.png') }}" class="img-fluid">
+                    </a>
+                    <ul class="nav nav-tabs menu-wrapper" id="myTab" role="tablist">
+                        <li data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Chat" class="nav-item"
+                            role="presentation">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#chat" type="button"
+                                role="tab" aria-controls="chat" aria-selected="true"><i class="iconsax"
+                                    data-icon="messages-2"></i>
+                                <span>Chat</span> </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="chat" role="tabpanel" aria-labelledby="chat" tabindex="0">
+                <div class="main-wrapper">
+                    <nav class="navbar navbar-expand-lg bg-light p-0">
+                        <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <i class="iconsax" data-icon="text-align-justify"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <div class="inner-menu-panel">
+                                <button data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                                    class="inner-close d-block d-lg-none">Back
+                                </button>
+                                <div class="search-box">
+                                    <i class="iconsax" data-icon="search-normal-2"></i>
+                                    <input type="text" class="form-control" placeholder="Search here..">
+                                </div>
+                                <ul class="inner-links-list" id="innerLink">
+                                    <li><a href="chat" data-title="Ask anything">Ask anything</a></li>
+                                    <li><a href="joke" data-title="Joke">Joke</a></li>
+                                    <li><a href="movie" data-title="movie recommendation">Movie Recommendation</a></li>
+                                    <li class="active" ><a href="song" data-title="Music Recommendation">Music Recommendation</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="chat-header">
+                        <div class="d-flex align-items-center gap-2">
+                            <button class="navbar-toggler d-md-none d-block" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#mainnavbarNav" aria-controls="mainnavbarNav" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <i class="iconsax" data-icon="text-align-justify"></i>
+                            </button>
+                            <a href="index.html" class="logo-icon d-flex d-md-none">
+                                 
+                            </a>
+                            <h3 id="targetDiv">Ask Song</h3>
+                        </div>
+                        <div class="header-option">
+                             
+                        </div>
+                    </div>
+                    <div class="main-chat">
+                        <div class="no-chat">
+                            <div>
+                                 
+                            </div>
+                        </div>
+                        <div class="msger-chat">
+                        </div>
+                        <form class="msger-inputarea">
+                            <button class="navbar-toggler d-lg-none d-block msger-send-btn" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <i class="iconsax" data-icon="text-align-justify"></i>
+                            </button>
+                            <input type="text" class="msger-input" placeholder="Ask me any question here..." />
+                            <a href="#" class="scan-icon"><i class="iconsax" data-icon="scan-1"></i></a>
+                            <a href="#" class="mic-icon"><i class="iconsax" data-icon="mic-1"></i></a>
+                            <button type="submit" class="msger-send-btn"><i class="iconsax"
+                                    data-icon="send-1"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--custom cursor start  -->
+    <div id="cursor"></div>
+    <div id="cursor-border"></div>
+    <!--custom cursor start  -->
+    <!-- Bootstrap js-->
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Swiper Slider JS -->
+    <script src="{{ url_for('static', filename='js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom-slider.js') }}"></script>
+    <!-- Custom cursor -->
+    <script src="{{ url_for('static', filename='js/custom-cursor.js') }}"></script>
+    <!-- Iconsax JS -->
+    <script src="{{ url_for('static', filename='js/iconsax.js') }}"></script>
+  
+    <!-- Chatting JS -->
+    <script>
+        const msgerForm = document.querySelector(".msger-inputarea");
+        const msgerInput = document.querySelector(".msger-input");
+        const msgerChat = document.querySelector(".msger-chat");
+
+        const BOT_IMG = "../../assets/images/icons/pro1.png";
+        const PERSON_IMG = "../../assets/images/icons/profile.png";
+        const BOT_NAME = "BOT";
+        const PERSON_NAME = "Mayank kumar Shrivastva";
+
+        const mkJsonContent = {
+            "intents": [
+                {
+                    "tag": "greeting",
+                    "patterns": ["Hello", "Hi", "Hey", "नमस्ते", "हाय", "hy", "helo", "wassup", "Howdy", "What's going on"],
+                    "responses": ["Hi there! How can I help you?", "Hello! What can I do for you today?",]
+                },
+                {
+                    "tag": "goodbye",
+                    "patterns": ["Goodbye", "Bye", "See you later", "अलविदा", "फिर मिलेंगे"],
+                    "responses": [
+                        "Goodbye! Have a great day!",
+                        "See you later!",
+                    ]
+                },
+                {
+                    "tag": "thanks",
+                    "patterns": ["Thanks", "Thank you", "Appreciate it", "धन्यवाद", "शुक्रिया"],
+                    "responses": [
+                        "You're welcome!",
+                        "Glad I could help!",
+                    ]
+                },
+                {
+                    "tag": "unknown",
+                    "patterns": ["I don't know", "Sorry, I'm not sure", "मुझे नहीं पता", "मुझे माफ़ करें, मैं नहीं जानता"],
+                    "responses": [
+                        "I'm here to assist. Is there anything else you'd like to know?",
+                        "No problem. What else can I help you with?",
+                    ]
+                },
+                {
+                 "tag": "hindi_old_songs",
+                   "patterns": ["hindi old songs", "hindi song", "old song"],
+                    "responses": [
+                    {
+                        "title": "Mere Sapno Ki Rani",
+                        "link": "https://youtu.be/9PdSmDRGIwM?si=UAnQNNuj-F5QLgm_"
+                      },
+                      {
+                        "title": "Lag Ja Gale",
+                        "link": "https://youtu.be/TFr6G5zveS8?si=wXgFPP-BkBzgWeX9"
+                      },
+                      {
+                        "title": "Yeh Jo Mohabbat Hai",
+                        "link": "https://youtu.be/XxrEISBLhY0?si=ciYBBM-hVF6G3OQB"
+                      },
+                      {
+                        "title": "Aaj Mausam Bada Beimaan Hai",
+                        "link": "https://youtu.be/aSJ_jcEPOu0?si=Q7uKVCQi1HN2-m7H"
+                      },
+                      {
+                        "title": "Ajeeb Dastan Hai Yeh",
+                        "link": "https://youtu.be/l7GR1S-HNGo?si=6ETaUL-oVpvHDZ_4"
+                      },
+                      {
+                        "title": "Yeh Sham Mastani",
+                        "link": "https://youtu.be/lbfWsIpXsCA?si=rB07pP_tzmjqN7Xh"
+                      },
+                      {
+                        "title": "Chookar mere man ko",
+                        "link": "https://youtu.be/4w9FBmbCfws?si=k99Fw19LPYQv2okn"
+                      },
+                      {
+                        "title": "Tere Bina Zindagi Se",
+                        "link": "https://youtu.be/8-HnmVg0-O8?si=BDtFY4zGNE6y2Upo"
+                      },
+                      {
+                        "title": "Tum Jo Mil Gaye Ho",
+                        "link": "https://youtu.be/7cQaLY4sUDo?si=jyBCFnSeZrJ9NLqn"
+                      },
+                      {
+                        "title": "Mera Jeevan Kora Kagaz",
+                        "link": "https://youtu.be/vmDWt1skq24?si=j1EoV_pVBXD6fr7W"
+                      }
+                    ]
+                
+                    },
+                    
+                    {
+                        "tag": "new_hindi_songs",
+                        "patterns": ["new song", "new hindi songs", "new song"],
+                        "responses": [
+                        {
+                            "title": "Raataan Lambiyan",
+                            "link": "https://youtu.be/gvyUuxdRdR4?si=QVQ21iymGx_K7LvK"
+                          },
+                          {
+                            "title": "Shershaah - Raatan Lambiyan",
+                            "link": "https://youtu.be/GLGuLXKT9Ng?si=QfkSr2h7rnyg7px6"
+                          },
+                          {
+                            "title": "Dil Galti Kar Baitha Hai",
+                            "link": "https://youtu.be/1--qqQrimMA?si=72Wgv7L8LV-XT8H7"
+                          },
+                          {
+                            "title": "Ae Mere Dil",
+                            "link": "https://youtu.be/87ErHaYgdtg?si=NImKIYioCzcmAg05"
+                          },
+                          {
+                            "title": "Mehendi Wale Haath",
+                            "link": "https://youtu.be/uJ6WU-u4i3w?si=2_YKoDISc4hVmUNS"
+                          },
+                          {
+                            "title": "Thoda Thoda Pyaar",
+                            "link": "https://youtu.be/USccSZnS8MQ?si=TKjyyMc6ZJlgmmgs"
+                          },
+                          {
+                            "title": "Lut Gaye",
+                            "link": "https://youtu.be/sCbbMZ-q4-I?si=D_Ny4lpIDdrZCSg2"
+                          },
+                          {
+                            "title": "Dilbar",
+                            "link": "https://youtu.be/JFcgOboQZ08?si=hVMhRiyeQvc-HOs2"
+                          },
+                          {
+                            "title": "Bachalo",
+                            "link": "https://youtu.be/SdO4L0IVsGs?si=KmKUxnaZwYunt_tf"
+                          },
+                          {
+                            "title": "Kaise Mujhe/Tum Ho",
+                            "link": "https://youtu.be/hV_RjHb9034?si=5Y5XZWTDqAKUqS5v"
+                          }
+                        ]
+                      },
+
+                {
+                    "tag": "how_are_you",
+                    "patterns": ["How are you?", "How's it going?", "How are you doing?", "तुम कैसे हो?", "कैसा चल रहा है?", "तुम कैसे हो रहे हो?", "how r u"],
+                    "responses": [
+                        "I'm just a computer program, but I'm here and ready to assist you!",
+                        "Thank you for asking! I'm here to help.",
+                    ]
+                }
+            ]
+        }
+        msgerForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+        
+            const msgText = msgerInput.value;
+            if (!msgText) return;
+        
+            appendMessage("User", "", "right", msgText);
+            msgerInput.value = "";
+        
+            const response = getBotResponse(msgText);
+            appendMessage("Bot", "", "left", response);
+        });
+        
+        function appendMessage(name, img, side, text) {
+            const msgHTML = `
+                <div class="msg ${side}-msg">
+                    <div class="msg-bubble">
+                        <div class="msg-text">${text}</div>
+                    </div>
+                </div>
+            `;
+        
+            msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+            msgerChat.scrollTop += 500;
+        }
+        
+        function appendMessage(name, img, side, text) {
+            const msgHTML = `
+                <div class="msg ${side}-msg">
+                    <div class="msg-bubble">
+                        <div class="msg-text">${text}</div>
+                    </div>
+                </div>
+            `;
+    
+            msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+            msgerChat.scrollTop += 500;
+        }
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+    
+        function appendMovieMessage(title, youtubeLink) {
+            const msgHTML = `
+                <div class="msg left-msg">
+                    <div class="msg-bubble">
+                        <div class="msg-text">
+                            <span class="movie-title">${title}</span>:<br>
+                            <a href="${youtubeLink}" target="_blank">Watch on YouTube</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+    
+            msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+            msgerChat.scrollTop += 500;
+        }
+    
+        function getBotResponse(userInput) {
+            const matchedIntent = mkJsonContent.intents.find((intent) => {
+                return intent.patterns.some((pattern) => {
+                    const regex = new RegExp(pattern, "i");
+                    return regex.test(userInput);
+                });
+            });
+        
+            if (matchedIntent) {
+                const tag = matchedIntent.tag;
+        
+                if (tag === "new_hindi_songs" || tag === "hindi_old_songs") {
+                    const songs = [...matchedIntent.responses];
+                    shuffleArray(songs);
+        
+                    const songsToShow = Math.min(4, songs.length);
+                    const selectedSongs = songs.slice(0, songsToShow);
+        
+                    const formattedResponse = selectedSongs.map(song => {
+                        return `<strong>${song.title}</strong>:<br> <a href="${song.link}" target="_blank">Watch on YouTube</a>`;
+                    });
+        
+                    return formattedResponse.join('<br>');
+                } else {
+                    const responses = matchedIntent.responses;
+                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    return randomResponse;
+                }
+            }
+        
+            return "I'm sorry, I didn't understand that.";
+        }
+        
+    </script>
+</body>
+
+</html>

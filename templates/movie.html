@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mood Beats">
+    <meta name="keywords" content="Mood Beats">
+    <meta name="author" content="Mood Beats">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon" />
+    <title>Mood Beats</title>
+
+    <!-- Bootstrap CSS -->
+    <link id="rtl-link" rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/vendors/bootstrap.css') }}">
+
+    <!-- Remixicon CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/vendors/remixicon.css') }}">
+
+    <!-- Iconsax CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/vendors/iconsax.css') }}" />
+
+    <!-- Animation CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/vendors/aos.css') }}">
+
+    <!-- Swiper Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/vendors/swiper-bundle.min.css') }}" />
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/movie.css') }}">
+</head>
+
+<body>
+    <section class="chatting-wrapper pt-0">
+        <nav class="navbar navbar-expand-md p-0">
+            <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainnavbarNav" aria-controls="mainnavbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="iconsax" data-icon="text-align-justify"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="mainnavbarNav">
+                <div class="menu-panel">
+                    <button data-bs-toggle="collapse" data-bs-target="#mainnavbarNav"
+                        class="mainnav-close d-block d-md-none"><i class="iconsax" data-icon="close-circle"></i>
+                    </button>
+                    <a href="{{ url_for('index') }}" class="logo-icon d-none d-md-flex">
+                        <img src="{{ url_for('static', filename='css/logo.png') }}" class="img-fluid">
+                    </a>
+                    <ul class="nav nav-tabs menu-wrapper" id="myTab" role="tablist">
+                        <li data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Chat" class="nav-item"
+                            role="presentation">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#chat" type="button"
+                                role="tab" aria-controls="chat" aria-selected="true"><i class="iconsax"
+                                    data-icon="messages-2"></i>
+                                <span>Chat</span> </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="chat" role="tabpanel" aria-labelledby="chat" tabindex="0">
+                <div class="main-wrapper">
+                    <nav class="navbar navbar-expand-lg bg-light p-0">
+                        <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <i class="iconsax" data-icon="text-align-justify"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <div class="inner-menu-panel">
+                                <button data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                                    class="inner-close d-block d-lg-none">Back
+                                </button>
+                                <div class="search-box">
+                                    <i class="iconsax" data-icon="search-normal-2"></i>
+                                    <input type="text" class="form-control" placeholder="Search here..">
+                                </div>
+                                <ul class="inner-links-list" id="innerLink">
+                                    <li><a href="chat" data-title="Ask anything">Ask anything</a></li>
+                                    <li><a href="joke" data-title="Joke">Joke</a></li>
+                                    <li class="active"><a href="movie" data-title="movie recommendation">Movie Recommendation</a></li>
+                                    <li  ><a href="song" data-title="Music Recommendation">Music Recommendation</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="chat-header">
+                        <div class="d-flex align-items-center gap-2">
+                            <button class="navbar-toggler d-md-none d-block" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#mainnavbarNav" aria-controls="mainnavbarNav" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <i class="iconsax" data-icon="text-align-justify"></i>
+                            </button>
+                            <a href="index.html" class="logo-icon d-flex d-md-none">
+                                
+                            </a>
+                            <h3 id="targetDiv">Ask Movie</h3>
+                        </div>
+                        <div class="header-option">
+                             
+                        </div>
+                    </div>
+                    <div class="main-chat">
+                        <div class="no-chat">
+                            <div>
+                              
+                            </div>
+                        </div>
+                        <div class="msger-chat">
+                        </div>
+                        <form class="msger-inputarea">
+                            <button class="navbar-toggler d-lg-none d-block msger-send-btn" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <i class="iconsax" data-icon="text-align-justify"></i>
+                            </button>
+                            <input type="text" class="msger-input" placeholder="Ask me any question here..." />
+                            <a href="#" class="scan-icon"><i class="iconsax" data-icon="scan-1"></i></a>
+                            <a href="#" class="mic-icon"><i class="iconsax" data-icon="mic-1"></i></a>
+                            <button type="submit" class="msger-send-btn"><i class="iconsax"
+                                    data-icon="send-1"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--custom cursor start  -->
+    <div id="cursor"></div>
+    <div id="cursor-border"></div>
+    <!--custom cursor start  -->
+    <!-- Bootstrap js-->
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Swiper Slider JS -->
+    <script src="{{ url_for('static', filename='js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom-slider.js') }}"></script>
+    <!-- Custom cursor -->
+    <script src="{{ url_for('static', filename='js/custom-cursor.js') }}"></script>
+    <!-- Iconsax JS -->
+    <script src="{{ url_for('static', filename='js/iconsax.js') }}"></script>
+    <!-- Chat page JS -->
+    
+    <!-- Chatting JS -->
+<script>
+    const msgerForm = document.querySelector(".msger-inputarea");
+    const msgerInput = document.querySelector(".msger-input");
+    const msgerChat = document.querySelector(".msger-chat");
+    
+    const BOT_IMG = "../../assets/images/icons/pro1.png";
+    const PERSON_IMG = "../../assets/images/icons/profile.png";
+    const BOT_NAME = "BOT";
+    const PERSON_NAME = "Kristin Williams";
+    
+    const mkJsonContent = {
+        "intents": [
+            {
+                "tag": "greeting",
+                "patterns": ["Hello", "Hi", "Hey", "नमस्ते", "हाय","hy","helo", "wassup", "Howdy", "What's going on"],
+                "responses": ["Hi there! How can I help you?", 
+                "Hello! What can I do for you today?",
+             ]
+            },
+            {
+                "tag": "goodbye",
+                "patterns": ["Goodbye", "Bye", "See you later", "अलविदा", "फिर मिलेंगे"],
+                "responses": [
+                    "Goodbye! Have a great day!",
+                    "See you later!",
+                     
+                ]
+            },
+            {
+                "tag": "thanks",
+                "patterns": ["Thanks", "Thank you", "Appreciate it", "धन्यवाद", "शुक्रिया"],
+                "responses": [
+                    "You're welcome!",
+                    "Glad I could help!",
+                    
+                ]
+            },
+            {
+                "tag": "unknown",
+                "patterns": ["I don't know", "Sorry, I'm not sure"],
+                "responses": [
+                    "I'm here to assist. Is there anything else you'd like to know?",
+                    "No problem. What else can I help you with?",
+                    
+                ]
+            },
+            
+            {
+                "tag": "movie_info",
+                "patterns": ["Tell me about movies", "Recommend a movie", "What's your favorite movie?", "फिल्मों के बारे में बताओ", "एक फिल्म सुझाओ", "तुम्हारी पसंदीदा फिल्म कौन सी है?"],
+                "responses": [
+                    "I can provide information about movies. What specific movie are you interested in?",
+                    
+                ]
+            },
+    
+            {
+                "tag": "Romantic",
+                "patterns": ["romantic movie", "romantic mood", "any other romantic movie"],
+                "responses": [
+                    {
+                        "title": "Dilwale Dulhania Le Jayenge (Bollywood - 1995)",
+                        "youtube_link": "https://youtu.be/vAWlAkoY3VY?si=gyK_iYKVomaH_ffE"
+                    },
+                    {
+                        "title": "Before Sunrise (Hollywood - 1995)",
+                        "youtube_link": "https://youtu.be/DrpPGGaXYsc?si=Yg7RiG4MApd6yT8V"
+                    },
+                    {
+                        "title": "Hum Dil De Chuke Sanam (Bollywood - 1999)",
+                        "youtube_link": "https://youtu.be/DItyZknYgCg?si=f_BKcGNHypdqWF6-"
+                    },
+                    {
+                        "title": "Kabhi Khushi Kabhie Gham (Bollywood - 2001)",
+                        "youtube_link": "https://youtu.be/iUFDAcA0C2U?si=NBlOaJ0-DITCcW5S"
+                    },
+                    {
+                        "title": "Jab Tak Hai Jaan (Bollywood - 2012)",
+                        "youtube_link": "https://youtu.be/yBm5dOd1bGo?si=6z3oFgrlUJi6A69O"
+                    },
+                    {
+                        "title": "Yeh Jawaani Hai Deewani (Bollywood - 2013)",
+                        "youtube_link": "https://youtu.be/WiaHoVh4lXc?si=T7W_AwxqZwTVVycm"
+                    },
+                    {
+                        "title": "The Notebook (Hollywood - 2004)",
+                        "youtube_link": "https://youtu.be/BjJcYdEOI0k?si=7xzz8gjbBN9cZruU"
+                    },
+                    {
+                        "title": "Titanic (Hollywood - 1997)",
+                        "youtube_link": "https://youtu.be/CHekzSiZjrY?si=pWfh6FOnMqisOEqu"
+                    },
+                    {
+                        "title": "La La Land (Hollywood - 2016)",
+                        "youtube_link": "https://youtu.be/_8w9rOpV3gc?si=8bYIWFZgYtzZALcm"
+                    },
+                    {
+                        "title": "The Fault in Our Stars (Hollywood - 2014)",
+                        "youtube_link": "https://youtu.be/GDP3YDTh1D0?si=4FBjvpwx34S1pl3u"
+                    }
+                ]
+                
+            },
+    
+            {
+                "tag": "funny",
+                "patterns": ["funny movie", "funny mood", "any other funny movie"],
+                "responses": [
+                    {
+                        "title": "Andaz Apna Apna (Bollywood - 1994)",
+                        "youtube_link": "https://youtu.be/YKUcE6Rj0i8?si=lLQC__u6IQv9kdw7"
+                    },
+                    {
+                        "title": "Hera Pheri (Bollywood - 2000)",
+                        "youtube_link": "https://youtu.be/TIQ5hrfermg?si=vUqJC7nUFtoQ6dJ9"
+                    },
+                    {
+                        "title":"3 Idiots (Bollywood - 2009)",
+                        "youtube_link": "https://youtu.be/7Av9yuIEECE?si=hOMYrir439dVRyhJ"
+                    },
+                    {
+                        "title":"Chupke Chupke (Bollywood - 1975)",
+                        "youtube_link": "https://youtu.be/8lprjCd21ig?si=PUj7NBWB76l28uXY"
+                    },
+                    {
+                        "title":"Welcome (Bollywood - 2007)",
+                        "youtube_link": "https://youtu.be/AKiynoClCaA?si=26fyj-uzlOTyfX_D"
+                    },
+                    {
+                        "title":"Anchorman: The Legend of Ron Burgundy (Hollywood- 2004)",
+                        "youtube_link": "https://youtu.be/QvJ1K0_JzFI?si=Kpyh4SQXtWKmBRY9"
+                    },
+                    {
+                        "title":"Superbad (Hollywood- 2007)",
+                        "youtube_link": "https://youtu.be/LvKvus3vCEY?si=G8QSQPaK1jbKqFQa"
+                    },
+                    {
+                        "title":"Bridesmaids (Hollywood- 2011)",
+                        "youtube_link": "https://youtu.be/FNppLrmdyug?si=qorUq2HPFhIB4HtD"
+                    },
+                    {
+                        "title":"Dumb and Dumber (Hollywood- 1994)",
+                        "youtube_link": "https://youtu.be/1Zrfdtc8VuI?si=UAVxH-i51r-cO4EQ"
+                    },
+                    {
+                        "title":"The Grand Budapest Hotel (Hollywood- 2014)",
+                        "youtube_link": "https://youtu.be/zru-1DbbcsA?si=3RzJGAkIL3R-lBs4"
+                    }
+                ]
+            },
+    
+            {
+                "tag": "old",
+                "patterns": ["old movie", "old mood", "any other old movie"],
+                "responses": [
+                    {
+                        "title": "Mughal-e-Azam (Bollywood - 1960)",
+                        "youtube_link": "https://youtu.be/e7hP9UNp0Hw?si=C8NG8qZtDvoyrJn4"
+                    },
+                    {
+                        "title": "Sholay (Bollywood - 1975)",
+                        "youtube_link": "https://youtu.be/ruz-3qV6Sb4?si=iiihiZJMAIL7yDRB"
+                    },
+                    {
+                        "title": "Mother India (Bollywood - 1957)",
+                        "youtube_link": "https://youtu.be/HWyIJ92Acjg?si=MJNHTHglQ5Rb2CvI"
+                    },
+                    {
+                        "title": "Pyaasa (Bollywood - 1957)",
+                        "youtube_link": "https://youtu.be/WJK45r-j6TU?si=2AwNsamTSafHrSsp"
+                    },
+                    {
+                        "title": "Guide (Bollywood - 1965)",
+                        "youtube_link": "https://youtu.be/wN5gAzSo8sQ?si=pnB-bboWAU4kfo8L"
+                    },
+                    {
+                        "title": "Casablanca (Hollywood- 1942)",
+                        "youtube_link": "https://youtu.be/BkL9l7qovsE?si=-7Ydin6_9_oHjyJl"
+                    },
+                    {
+                        "title": "Gone with the Wind (Hollywood- 1939)",
+                        "youtube_link": "https://youtu.be/0X94oZgJis4?si=WyyWzV1W82itAG1G"
+                    },
+                    {
+                        "title": "Citizen Kane (Hollywood- 1941)",
+                        "youtube_link": "https://youtu.be/74ol6mKC3aY?si=MObARXXBZ61lNyN9"
+                    },
+                    {
+                        "title": "The Wizard of Oz (Hollywood- 1939)",
+                        "youtube_link": "https://youtu.be/tCgpLROSNmc?si=sF20etIAFp27gNl1"
+                    },
+                    {
+                        "title": "It Happened One Night (Hollywood- 1934)",
+                        "youtube_link": "https://youtu.be/Kd509cLN-9U?si=YCzyRSIwIKwKOmAn"
+                    }
+                ]
+                
+            },
+            
+            
+            {
+                "tag": "how_are_you",
+                "patterns": ["How are you?", "How's it going?", "How are you doing?", "तुम कैसे हो?", "कैसा चल रहा है?", "तुम कैसे हो रहे हो?","how r u"],
+                "responses": [
+                    "I'm just a computer program, but I'm here and ready to assist you!",
+                    "Thank you for asking! I'm here to help.",
+                    
+                ]
+    
+            }
+        ]
+    }
+    
+    msgerForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+         function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+    
+        const msgText = msgerInput.value;
+        if (!msgText) return;
+    
+        appendMessage("User", "", "right", msgText);
+        msgerInput.value = "";
+    
+        const response = getBotResponse(msgText);
+        appendMessage("Bot", "", "left", response);
+    });
+    
+    function appendMessage(name, img, side, text) {
+        const msgHTML = `
+            <div class="msg ${side}-msg">
+                <div class="msg-bubble">
+                    <div class="msg-text">${text}</div>
+                </div>
+            </div>
+        `;
+    
+        msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+        msgerChat.scrollTop += 500;
+    }
+    
+    function appendMovieMessage(title, youtubeLink) {
+        const msgHTML = `
+            <div class="msg left-msg">
+                <div class="msg-bubble">
+                    <div class="msg-text">
+                        <span class="movie-title">${title}</span><br/>
+                        <a href="${youtubeLink}" target="_blank" class="youtube-link">${youtubeLink}</a>
+                    </div>
+                </div>
+            </div>
+        `;
+    
+        msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+        msgerChat.scrollTop += 500;
+    }
+    
+    function getBotResponse(userInput) {
+    const matchedIntent = mkJsonContent.intents.find((intent) => {
+        return intent.patterns.some((pattern) => {
+            const regex = new RegExp(pattern, "i");
+            return regex.test(userInput);
+        });
+    });
+
+    if (matchedIntent) {
+        const tag = matchedIntent.tag;
+
+        if (tag === "funny"|| tag === "old"|| tag === "Romantic") {
+            const movies = matchedIntent.responses;
+            const formattedResponse = movies.map(movie => {
+                return `<strong>${movie.title}</strong>:<br> <a href="${movie.youtube_link}" target="_blank">Watch on YouTube</a>`;
+            });
+            return formattedResponse.join('<br>');
+        } else {
+            const responses = matchedIntent.responses;
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            return randomResponse;
+        }
+    }
+
+    return "I'm sorry, I didn't understand that.";
+}  
+</script>
+</body>
+
+ </html>
